@@ -1,0 +1,44 @@
+<div>
+
+    <div id="datosEnProducts">
+        <p></p>
+    </div>
+        <div><a href="/"><button>Cerrar sesion</button></a></div>
+     <!--<div><a href="/api/sessions/logout"><button>Cerrar sesion</button></a></div>--> 
+     <!-- sirve para session -->
+
+    <div>
+
+    <table id="tableProduct" >
+        <thead>
+            <tr>
+            <th >Nombre</th>
+            <th >Precio</th>
+            <th >Stock</th>
+            <th >Categoria</th>
+            <th >Descripcion</th>
+            </tr>
+        </thead>
+        {{#each productos.docs}}
+            <tbody>
+                <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.category}}</td>
+                <td>{{this.description}}</td>
+                <td><button>Agregar al carrito</button></td>
+                </tr>
+            </tbody>
+        {{/each}}
+    </table>
+    </div>
+    {{#if productos.hasPrevPage}}
+    <a href={{productos.prevLink}}><button>Anterior</button></a>
+    {{/if}}
+    {{#if productos.hasNextPage}}
+    <a href={{productos.nextLink}}><button>Siguiente</button></a>
+    {{/if}}
+</div>
+
+<script src="/js/products.js"></script>

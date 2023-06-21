@@ -1,0 +1,61 @@
+<div >
+    <form id="addProduct" >
+        <h3 >Agregar Producto</h3>
+        <input type="text" required id="title" name="title" placeholder="Ingrese el nombre" >
+        <input type="number" min="1"  required id="price" name="price" placeholder="Ingrese el precio" >
+        <input type="text" required id="code" name="code" placeholder="Ingrese el code" >
+        <input type="number" min="1" required id="stock" name="stock" placeholder="Ingrese el stock" >
+        <input type="text" required id="category" name="categoty" placeholder="Ingrese la categoria" >
+        <input type="text" required id="description" name="description" placeholder="Ingrese la descripcion" >
+        <label > <input type="checkbox" name="status" id="status" value="true"><span >Status</span></label>
+        <input type="text" required id="thumbnail" name="thumbnail" placeholder="Url Imagen" >
+        {{!-- <input  type="file" name="thumbnail" id="thumbnail" placeholder="Ingrese imagen"> --}}
+        <br>
+        <input className="btn-cargar" type="submit" value="Cargar">
+    </form>
+</div>
+
+<div>
+    <div >
+        <form id="formDelete" >
+            <h3 >Eliminar Producto</h3>
+            <input  id="deleteProd" name="deleteProd" placeholder="Ingrese el id">
+            <input  type="submit" value="Eliminar">
+        </form>
+    </div>
+</div>
+
+<div class="conteiner">
+    <h1>Lista Productos</h1>
+    <table id="tableProduct" >
+        <thead>
+            <tr>
+            <th >ID</th>
+            <th >Nombre</th>
+            <th >Precio</th>
+            <th >Codigo</th>
+            <th >Stock</th>
+            <th >Categoria</th>
+            <th >Descripcion</th>
+            <th >Status</th>
+            </tr>
+        </thead>
+        {{#each productos}}
+            <tbody>
+                <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.code}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.category}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.status}}</td>
+                </tr>
+            </tbody>
+        {{/each}}
+    </table>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realTimeProducts.js"></script>

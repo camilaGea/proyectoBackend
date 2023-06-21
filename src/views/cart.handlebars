@@ -1,0 +1,25 @@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+            </tr>
+            <a href="http://localhost:8080/products">Homepage</a>
+        </thead>
+        <tbody>
+            {{#each cart.product}}
+                <tr>
+                    <td>
+                        {{this.idProduct.title}}
+                    </td>
+                    <td>{{this.quantity}}</td>
+                    <td>${{this.idProduct.price}}</td>
+                    <td><button>Borrar Producto</button></td>
+                </tr>
+
+              {{/each}}
+        </tbody>
+    </table>
+</div>
